@@ -1,0 +1,25 @@
+# ninja log v6
+83	398	7629709191438120	CT_MRI_Demo_autogen/timestamp	29306da11114f41a
+83	398	7629709191438120	CT_MRI_Demo_autogen/mocs_compilation.cpp	29306da11114f41a
+76	477	7629685729632462	.qt/qml_imports/CT_MRI_Demo_build.cmake	af9421d499d5fc07
+83	398	7629709191438120	H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CT_MRI_Demo_autogen/timestamp	29306da11114f41a
+400	7381	7629709194605151	CMakeFiles/CT_MRI_Demo.dir/CT_MRI_Demo_autogen/mocs_compilation.cpp.obj	e503df0983680ca1
+83	398	7629709191438120	H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CT_MRI_Demo_autogen/mocs_compilation.cpp	29306da11114f41a
+405	7066	7629709194664140	CMakeFiles/CT_MRI_Demo.dir/main.cpp.obj	d2e732074753b51a
+76	477	7629685729632462	H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/.qt/qml_imports/CT_MRI_Demo_build.cmake	af9421d499d5fc07
+413	8806	7629709194734140	CMakeFiles/CT_MRI_Demo.dir/mainwindow.cpp.obj	228ca6ac396be5a7
+5191	5870	7629595461122021	CT_MRI_Demo.exe	9bf7f198c94ae427
+53	3027	7629709733110091	build.ninja	df9aa349caf2fe35
+419	9519	7629709194794137	CMakeFiles/CT_MRI_Demo.dir/manageDicom.cpp.obj	e6d5143623805d4c
+2007	3573	7629685745039235	CMakeFiles/CT_MRI_Demo.dir/vtkreslicecursorcallback.cpp.obj	37130f75ce8651bd
+54	115	7629685698998078	CMakeFiles/clean.additional	de15c7ac0bf9c0f3
+115	130	7629685699605686	clean	8057bffb54208e0f
+101	4303	7629709733110091	build.ninja	df9aa349caf2fe35
+136	685	7629709735380079	CT_MRI_Demo_autogen/timestamp	29306da11114f41a
+136	685	7629709735380079	CT_MRI_Demo_autogen/mocs_compilation.cpp	29306da11114f41a
+136	685	7629709735380079	H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CT_MRI_Demo_autogen/timestamp	29306da11114f41a
+136	685	7629709735380079	H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CT_MRI_Demo_autogen/mocs_compilation.cpp	29306da11114f41a
+695	11473	7629709740960098	CMakeFiles/CT_MRI_Demo.dir/main.cpp.obj	d2e732074753b51a
+687	11582	7629709740890129	CMakeFiles/CT_MRI_Demo.dir/CT_MRI_Demo_autogen/mocs_compilation.cpp.obj	e503df0983680ca1
+702	13963	7629709741040141	CMakeFiles/CT_MRI_Demo.dir/mainwindow.cpp.obj	228ca6ac396be5a7
+712	15627	7629709741140089	CMakeFiles/CT_MRI_Demo.dir/manageDicom.cpp.obj	e6d5143623805d4c

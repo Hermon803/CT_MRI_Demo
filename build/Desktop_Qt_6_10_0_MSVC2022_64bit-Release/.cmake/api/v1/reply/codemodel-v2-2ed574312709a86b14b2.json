@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-7b0e8f1cf1c17f23a987.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CT_MRI_Demo",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CT_MRI_Demo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CT_MRI_Demo-Release-84203f6946b03b29de01.json",
+					"name" : "CT_MRI_Demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CT_MRI_Demo_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CT_MRI_Demo_autogen-Release-1de124e8d59ab8ba8415.json",
+					"name" : "CT_MRI_Demo_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CT_MRI_Demo_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CT_MRI_Demo_autogen_timestamp_deps-Release-d395cb12a5aebd8d31a8.json",
+					"name" : "CT_MRI_Demo_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CT_MRI_Demo_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CT_MRI_Demo_qmlimportscan-Release-6686e1fc0e6bc6230e64.json",
+					"name" : "CT_MRI_Demo_qmlimportscan",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release",
+		"source" : "H:/Code/CT_MRI_Demo/CT_MRI_Demo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

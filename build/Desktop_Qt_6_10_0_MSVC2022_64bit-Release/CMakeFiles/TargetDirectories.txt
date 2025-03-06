@@ -1,0 +1,9 @@
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/CT_MRI_Demo.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/CT_MRI_Demo_qmlimportscan.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/edit_cache.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/rebuild_cache.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/list_install_components.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/install.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/install/local.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/CT_MRI_Demo_autogen_timestamp_deps.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Release/CMakeFiles/CT_MRI_Demo_autogen.dir
