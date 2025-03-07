@@ -72,14 +72,16 @@ public:
     {
         vtkSliderWidget* sliderWidget =
             reinterpret_cast<vtkSliderWidget*>(caller);
-        this->viewer->SetSlice(static_cast<vtkSliderRepresentation*>(sliderWidget->GetRepresentation())->GetValue());
-
-
+        this->viewer1->SetSlice(static_cast<vtkSliderRepresentation*>(sliderWidget->GetRepresentation())->GetValue());
+        this->viewer2->SetSlice(static_cast<vtkSliderRepresentation*>(sliderWidget->GetRepresentation())->GetValue());
+        this->viewer3->SetSlice(static_cast<vtkSliderRepresentation*>(sliderWidget->GetRepresentation())->GetValue());
         // 更新切片显示
     }
     //vtkImageActor* imageActor = nullptr;
     //vtkRenderWindow* renderWindow = nullptr;
-	vtkSmartPointer<vtkImageViewer2> viewer = nullptr;
+	vtkSmartPointer<vtkImageViewer2> viewer1 = nullptr;
+    vtkSmartPointer<vtkImageViewer2> viewer2 = nullptr;
+    vtkSmartPointer<vtkImageViewer2> viewer3 = nullptr;
 };
 
 manageDicom::manageDicom(QWidget *parent):
@@ -95,13 +97,9 @@ manageDicom::~manageDicom(){
 void manageDicom::initUi(Ui::MainWindow *mutalUi){
     ui = mutalUi;
     qDebug() << "初始化成功！";
-    // 将 VTK 渲染窗口与 Qt OpenGLWidget 关联
-    //ui->openGLWidget->setRenderWindow(renderWindow1);
-    //ui->openGLWidget_2->setRenderWindow(renderWindow2);
-    //ui->openGLWidget_3->setRenderWindow(renderWindow3);
-    //ui->openGLWidget_4->setRenderWindow(renderWindow4);
 }
 
+// 使用ITK读取DICOM图片，输入类型为文件夹
 Input3dImageType::Pointer manageDicom::read3dImage(QString path){
 
     reader3d->SetImageIO(gdcmImageIO);
@@ -155,200 +153,97 @@ void manageDicom::create4View(QString dicomDirPath){
 
     // 使用ITK读入DICOM图片
     Input3dImageType::Pointer image = read3dImage(dicomDirPath);
-	show3dImage(image);
-    //vtkSmartPointer<vtkDICOMImageReader> reader = vtkSmartPointer<vtkDICOMImageReader>::New();
-
-    //reader->SetInputData(itkToVtk(image));
-    //reader->Update();
-
-    //if (reader->GetOutput() == nullptr) {
-    //    QMessageBox::warning(this,"错误","无法读取 DICOM 数据，请检查文件夹路径是否正确。");
-    //    return;
-    //}
-    //// 创建四个渲染器
-    //vtkSmartPointer<vtkRenderer> ren[4];
-    //for (int i = 0; i < 4; i++) {
-    //    ren[i] = vtkSmartPointer<vtkRenderer>::New();
-    //}
-
-    //// 初始化交互器
-    //vtkSmartPointer<vtkRenderWindowInteractor> interactor1 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-    //vtkSmartPointer<vtkRenderWindowInteractor> interactor2 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-    //vtkSmartPointer<vtkRenderWindowInteractor> interactor3 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-    //vtkSmartPointer<vtkRenderWindowInteractor> interactor4 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-
-    //renderWindow1->SetInteractor(interactor1);
-    //renderWindow2->SetInteractor(interactor2);
-    //renderWindow3->SetInteractor(interactor3);
-    //renderWindow4->SetInteractor(interactor4);
-
-    //// 创建 CellPicker 和 Property
-    //vtkSmartPointer<vtkCellPicker> picker = vtkSmartPointer<vtkCellPicker>::New();
-    //picker->SetTolerance(0.005);
-
-    //vtkSmartPointer<vtkProperty> ipwProp = vtkSmartPointer<vtkProperty>::New();
-
-    //// 创建 ImagePlaneWidget
-    //vtkSmartPointer<vtkImagePlaneWidget> planeWidget[3];
-    //int imageDims[3];
-    //reader->GetOutput()->GetDimensions(imageDims);
-
-    //for (int i = 0; i < 3; i++) {
-    //    planeWidget[i] = vtkSmartPointer<vtkImagePlaneWidget>::New();
-    //    planeWidget[i]->SetInteractor(interactor1);
-    //    planeWidget[i]->SetPicker(picker);
-    //    planeWidget[i]->RestrictPlaneToVolumeOn();
-    //    double color[3] = { 0, 0, 0 };
-    //    color[i] = 1;
-    //    planeWidget[i]->GetPlaneProperty()->SetColor(color);
-    //    planeWidget[i]->SetTexturePlaneProperty(ipwProp);
-    //    planeWidget[i]->TextureInterpolateOff();
-    //    planeWidget[i]->SetResliceInterpolateToLinear();
-    //    planeWidget[i]->SetInputConnection(reader->GetOutputPort());
-    //    planeWidget[i]->SetPlaneOrientation(i);
-    //    planeWidget[i]->SetSliceIndex(imageDims[i] / 2);
-    //    planeWidget[i]->DisplayTextOn();
-    //    planeWidget[i]->SetDefaultRenderer(ren[3]);
-    //    planeWidget[i]->SetWindowLevel(1358, -27);
-    //    planeWidget[i]->On();
-    //    planeWidget[i]->InteractionOn();
-    //}
-
-    //planeWidget[1]->SetLookupTable(planeWidget[0]->GetLookupTable());
-    //planeWidget[2]->SetLookupTable(planeWidget[0]->GetLookupTable());
-
-    //// 创建 ResliceCursor 和回调函数
-    //vtkSmartPointer<vtkResliceCursorCallback> cbk = vtkSmartPointer<vtkResliceCursorCallback>::New();
-    //vtkSmartPointer<vtkResliceCursor> resliceCursor = vtkSmartPointer<vtkResliceCursor>::New();
-    //resliceCursor->SetCenter(reader->GetOutput()->GetCenter());
-    //resliceCursor->SetThickMode(0);
-    //resliceCursor->SetThickness(10, 10, 10);
-    //resliceCursor->SetImage(reader->GetOutput());
-
-    //vtkSmartPointer<vtkResliceCursorWidget> resliceCursorWidget[3];
-    //vtkSmartPointer<vtkResliceCursorLineRepresentation> resliceCursorRep[3];
-
-    //double viewUp[3][3] = { { 0, 0, -1 }, { 0, 0, 1 }, { 0, 1, 0 } };
-    //for (int i = 0; i < 3; i++) {
-    //    resliceCursorWidget[i] = vtkSmartPointer<vtkResliceCursorWidget>::New();
-    //    resliceCursorWidget[i]->SetInteractor(interactor1);
-
-    //    resliceCursorRep[i] = vtkSmartPointer<vtkResliceCursorLineRepresentation>::New();
-    //    resliceCursorWidget[i]->SetRepresentation(resliceCursorRep[i]);
-    //    resliceCursorRep[i]->GetResliceCursorActor()->GetCursorAlgorithm()->SetResliceCursor(resliceCursor);
-    //    resliceCursorRep[i]->GetResliceCursorActor()->GetCursorAlgorithm()->SetReslicePlaneNormal(i);
-
-    //    const double minVal = reader->GetOutput()->GetScalarRange()[0];
-    //    if (vtkImageReslice* reslice = vtkImageReslice::SafeDownCast(resliceCursorRep[i]->GetReslice())) {
-    //        reslice->SetBackgroundColor(minVal, minVal, minVal, minVal);
-    //    }
-
-    //    resliceCursorWidget[i]->SetDefaultRenderer(ren[i]);
-    //    resliceCursorWidget[i]->SetEnabled(1);
-
-    //    ren[i]->GetActiveCamera()->SetFocalPoint(0, 0, 0);
-    //    double camPos[3] = { 0, 0, 0 };
-    //    camPos[i] = 1;
-    //    ren[i]->GetActiveCamera()->SetPosition(camPos);
-    //    ren[i]->GetActiveCamera()->ParallelProjectionOn();
-    //    ren[i]->GetActiveCamera()->SetViewUp(viewUp[i][0], viewUp[i][1], viewUp[i][2]);
-    //    ren[i]->ResetCamera();
-    //    cbk->IPW[i] = planeWidget[i];
-    //    cbk->RCW[i] = resliceCursorWidget[i];
-    //    resliceCursorWidget[i]->AddObserver(vtkResliceCursorWidget::ResliceAxesChangedEvent, cbk);
-    //    double range[2];
-    //    reader->GetOutput()->GetScalarRange(range);
-    //    resliceCursorRep[i]->SetWindowLevel(range[1] - range[0], (range[0] + range[1]) / 2.0);
-    //    planeWidget[i]->SetWindowLevel(range[1] - range[0], (range[0] + range[1]) / 2.0);
-    //    resliceCursorRep[i]->SetLookupTable(resliceCursorRep[0]->GetLookupTable());
-    //    planeWidget[i]->GetColorMap()->SetLookupTable(resliceCursorRep[0]->GetLookupTable());
-    //}
-
-    //// 设置背景颜色
-    //ren[0]->SetBackground(0, 0, 0);
-    //ren[1]->SetBackground(0, 0, 0);
-    //ren[2]->SetBackground(0, 0, 0);
-    //ren[3]->SetBackground(0, 0, 0);
-
-    //// 设置视图布局
-    //ren[0]->SetViewport(0, 0, 0.5, 0.5);
-    //ren[1]->SetViewport(0.5, 0, 1, 0.5);
-    //ren[2]->SetViewport(0, 0.5, 0.5, 1);
-    //ren[3]->SetViewport(0.5, 0.5, 1, 1);
-
-    //// 初始化交互器
-    //interactor1->Initialize();
-    //interactor2->Initialize();
-    //interactor3->Initialize();
-    //interactor4->Initialize();
-
+    show3dImage(image);
 }
 
 void manageDicom::show3dImage(Input3dImageType::Pointer image)  
 {  
-    vtkSmartPointer<vtkImageViewer2> viewer =
-        vtkSmartPointer<vtkImageViewer2>::New();
-    viewer->SetInputData(itkToVtk(image));
-    viewer->SetRenderWindow(ui->openGLWidget->renderWindow());
-    //设置基本属性
-    viewer->SetSize(640, 480);
-    viewer->SetColorLevel(500);
-    viewer->SetColorWindow(2000);
-    viewer->SetSlice(40);
-    viewer->SetSliceOrientationToXY();
+    const vtkSmartPointer<vtkImageData> DICOM_IMAGE = itkToVtk(image);
+    // 创建图像交互器并绑定到Qt窗口
+    vtkSmartPointer<vtkRenderWindowInteractor> iren = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+	iren->SetRenderWindow(ui->openGLWidget->renderWindow());
+
     
-    viewer->GetRenderer()->SetBackground(0, 0, 0);
-    viewer->Render();
+    // 创建图像查看器并绑定到Qt窗口
+    vtkSmartPointer<vtkImageViewer2> viewer1 = vtkSmartPointer<vtkImageViewer2>::New();
+    viewer1->SetRenderWindow(ui->openGLWidget->renderWindow());
+    viewer1->SetInputData(DICOM_IMAGE);
+
+    vtkSmartPointer<vtkImageViewer2> viewer2 = vtkSmartPointer<vtkImageViewer2>::New();
+    viewer2->SetRenderWindow(ui->openGLWidget_2->renderWindow());
+    viewer2->SetInputData(DICOM_IMAGE);
+
+    vtkSmartPointer<vtkImageViewer2> viewer3 = vtkSmartPointer<vtkImageViewer2>::New();
+    viewer3->SetRenderWindow(ui->openGLWidget_3->renderWindow());
+    viewer3->SetInputData(DICOM_IMAGE);
+
+
+    // 配置图像显示属性
+    viewer1->SetColorLevel(500);
+    viewer1->SetColorWindow(2000);
+    viewer1->SetSlice(40);
+    viewer1->SetSliceOrientationToXZ();
+    viewer1->GetRenderer()->SetBackground(0, 0, 0);
+
+    viewer2->SetColorLevel(500);
+    viewer2->SetColorWindow(2000);
+    viewer2->SetSlice(40);
+    viewer2->SetSliceOrientationToXY();
+    viewer2->GetRenderer()->SetBackground(0, 0, 0);
+
+    viewer3->SetColorLevel(500);
+    viewer3->SetColorWindow(2000);
+    viewer3->SetSlice(40);
+    viewer3->SetSliceOrientationToYZ();
+    viewer3->GetRenderer()->SetBackground(0, 0, 0);
+    // 配置交互器样式（保持原有相机操作）
     vtkSmartPointer<vtkInteractorStyleTrackballCamera> style =
         vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
-    vtkSmartPointer<vtkRenderWindowInteractor> rwi =
-        vtkSmartPointer<vtkRenderWindowInteractor>::New();
-    //设置交互属性
-    viewer->SetupInteractor(rwi);
-    //viewer->GetRenderer()->GetRenderWindow()->GetInteractor()->SetInteractorStyle(style);
+    iren->SetInteractorStyle(style);
 
+    // 设置交互器（必须在创建控件前完成且必须在样式设置后调用）
+    viewer1->SetupInteractor(iren);
+    viewer2->SetupInteractor(iren);
+    viewer3->SetupInteractor(iren);
+
+    // 创建滑动条控件
     vtkSmartPointer<vtkSliderRepresentation2D> sliderRep =
         vtkSmartPointer<vtkSliderRepresentation2D>::New();
-    sliderRep->SetMinimumValue(viewer->GetSliceMin());
-    sliderRep->SetMaximumValue(viewer->GetSliceMax());
-    sliderRep->SetValue(5.0);
-    sliderRep->GetSliderProperty()->SetColor(1, 0, 0);//red
-    sliderRep->GetTitleProperty()->SetColor(1, 0, 0);//red
-    sliderRep->GetLabelProperty()->SetColor(1, 0, 0);//red
-    sliderRep->GetSelectedProperty()->SetColor(0, 1, 0);//green
-    sliderRep->GetTubeProperty()->SetColor(1, 1, 0);//yellow
-    sliderRep->GetCapProperty()->SetColor(1, 1, 0);//yellow
-    sliderRep->GetPoint1Coordinate()->SetCoordinateSystemToDisplay();
-    sliderRep->GetPoint1Coordinate()->SetValue(40, 40);
-    sliderRep->GetPoint2Coordinate()->SetCoordinateSystemToDisplay();
-    sliderRep->GetPoint2Coordinate()->SetValue(500, 40);
+    sliderRep->SetMinimumValue(viewer1->GetSliceMin());
+    sliderRep->SetMaximumValue(viewer1->GetSliceMax());
+    sliderRep->SetValue(viewer1->GetSlice());
+
+    // 滑动条视觉样式配置
+    sliderRep->GetSliderProperty()->SetColor(1, 0, 0);
+    sliderRep->GetTitleProperty()->SetColor(1, 0, 0);
+    sliderRep->GetPoint1Coordinate()->SetCoordinateSystemToNormalizedDisplay();
+    sliderRep->GetPoint1Coordinate()->SetValue(0.1, 0.1);  // 左侧10%位置
+    sliderRep->GetPoint2Coordinate()->SetCoordinateSystemToNormalizedDisplay();
+    sliderRep->GetPoint2Coordinate()->SetValue(0.9, 0.1); // 右侧90%位置
+
+    // 创建滑动条控件
     vtkSmartPointer<vtkSliderWidget> sliderWidget =
         vtkSmartPointer<vtkSliderWidget>::New();
-    sliderWidget->SetInteractor(rwi);
+    sliderWidget->SetInteractor(iren);
     sliderWidget->SetRepresentation(sliderRep);
     sliderWidget->SetAnimationModeToAnimate();
     sliderWidget->EnabledOn();
 
+    // 配置回调函数
     vtkSmartPointer<vtkSliderCallback> callback =
         vtkSmartPointer<vtkSliderCallback>::New();
-    callback->viewer = viewer;
-
+    callback->viewer1 = viewer1;
+    callback->viewer2 = viewer2;
+    callback->viewer3 = viewer3;
     sliderWidget->AddObserver(vtkCommand::InteractionEvent, callback);
-    vtkSmartPointer<vtkAxesActor> axes = vtkSmartPointer<vtkAxesActor>::New();
-    double axesSize[3] = { 100,100,100 };
-    axes->SetTotalLength(axesSize);
-    axes->SetConeRadius(0.1);
-    axes->SetShaftTypeToLine();
-    axes->SetAxisLabels(false);
 
-    viewer->GetRenderer()->AddActor(axes);
-    viewer->Render();
 
-    viewer->GetRenderer()->ResetCamera();
-    viewer->Render();
-    rwi->Initialize();
-    
-    rwi->Start();
-   
+    // 初始化渲染（关键步骤）
+    viewer1->Render();
+    viewer2->Render();
+    viewer3->Render();
+
+	iren->Initialize();
+    iren->Start(); 
 }
 

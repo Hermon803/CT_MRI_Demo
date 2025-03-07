@@ -21,7 +21,7 @@ public:
     {
         return new vtkResliceCursorCallback;
     }
-    void Execute(vtkObject* caller, unsigned long, void* callData) override;
+    virtual void Execute(vtkObject* caller, unsigned long, void* callData) override;
 
     vtkImagePlaneWidget* IPW[3];
     vtkResliceCursorWidget* RCW[3];
