@@ -30,15 +30,17 @@ private slots:
     void on_loadFile();
     void on_saveFile();
     void on_saveAsFile();
+	void on_loadDir();
 
 private:
     void createActions();
     void createMenus();
 
 private:
-    QAction *loadAction;
+    QAction *loadFileAction;
     QAction *saveAction;
     QAction *saveAsAction;
+	QAction* loadDirAction;
 private:
 
 private:

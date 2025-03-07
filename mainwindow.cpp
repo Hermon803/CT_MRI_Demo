@@ -48,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     createMenus();
 
     connect(this,&MainWindow::mutualUi,mdicom,&manageDicom::initUi);
+    // 发出 mutualUi 信号
+    emit mutualUi(ui);
 }
 
 MainWindow::~MainWindow()
@@ -58,8 +60,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::createActions()
 {
-    loadAction = new QAction("加载文件", this);
-    connect(loadAction, &QAction::triggered, this, &MainWindow::on_loadFile);
+    loadFileAction = new QAction("打开文件", this);
+    connect(loadFileAction, &QAction::triggered, this, &MainWindow::on_loadFile);
+
+    loadDirAction = new QAction("打开文件夹", this);
+	connect(loadDirAction, &QAction::triggered, this, &MainWindow::on_loadDir);
 
     saveAction = new QAction("保存文件", this);
     connect(saveAction, &QAction::triggered, this, &MainWindow::on_saveFile);
@@ -71,7 +76,8 @@ void MainWindow::createActions()
 void MainWindow::createMenus()
 {
     QMenu *fileMenu = this->menuBar()->addMenu("文件(&F)");
-    fileMenu->addAction(loadAction);
+    fileMenu->addAction(loadFileAction);
+	fileMenu->addAction(loadDirAction);
     fileMenu->addAction(saveAction);
 }
 
@@ -128,6 +134,24 @@ void MainWindow::on_saveFile()
 
 void MainWindow::on_saveAsFile(){
     // Todo
+}
+
+void MainWindow::on_loadDir()
+{
+	// 打开文件选择对话框
+	QString selectedPath = QFileDialog::getExistingDirectory(
+		this,
+		"打开医学图像文件夹",
+		""
+	);
+	if (selectedPath.isEmpty()) {
+		QMessageBox::warning(this, "错误", "空路径！请重新选择文件夹或文件");
+		return;
+	}
+	currentFilePath = selectedPath;
+	// 调用 create4View 函数
+	mdicom->create4View(currentFilePath);
+	isDicom = true;
 }
 
 

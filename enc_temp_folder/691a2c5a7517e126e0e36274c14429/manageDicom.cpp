@@ -289,14 +289,13 @@ void manageDicom::show3dImage(Input3dImageType::Pointer image)
     vtkSmartPointer<vtkImageViewer2> viewer =
         vtkSmartPointer<vtkImageViewer2>::New();
     viewer->SetInputData(itkToVtk(image));
-    viewer->SetRenderWindow(ui->openGLWidget->renderWindow());
     //设置基本属性
     viewer->SetSize(640, 480);
     viewer->SetColorLevel(500);
     viewer->SetColorWindow(2000);
     viewer->SetSlice(40);
     viewer->SetSliceOrientationToXY();
-    
+    viewer->SetRenderWindow(ui->openGLWidget->renderWindow());
     viewer->GetRenderer()->SetBackground(0, 0, 0);
     viewer->Render();
     vtkSmartPointer<vtkInteractorStyleTrackballCamera> style =

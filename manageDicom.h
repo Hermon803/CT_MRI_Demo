@@ -37,6 +37,7 @@ private slots:
 private:
     Input3dImageType::Pointer read3dImage(QString path);
     vtkSmartPointer<vtkImageData> itkToVtk(Input3dImageType::Pointer image);
+	void show3dImage(Input3dImageType::Pointer image);
 private:
     itk::ImageSeriesReader<Input3dImageType>::Pointer reader3d = itk::ImageSeriesReader<Input3dImageType>::New();
     itk::GDCMSeriesFileNames::Pointer nameGenerator = itk::GDCMSeriesFileNames::New();

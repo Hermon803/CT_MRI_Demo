@@ -25,6 +25,7 @@ public:
 
     vtkImagePlaneWidget* IPW[3];
     vtkResliceCursorWidget* RCW[3];
+
 };
 
 #endif // VTKRESLICECURSORCALLBACK_H
