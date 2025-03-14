@@ -12,12 +12,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-#find package vtk
-set(VTK_DIR "H:/Tool/VTK-9.4.1/Debug/lib/cmake/vtk-9.4")
-find_package(VTK 9.4 REQUIRED)
+# 检查是否已通过环境变量/命令行定义路径
+if(NOT DEFINED VTK_DIR)
+  set(VTK_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/VTK-9.4.1/Degug/lib/cmake/vtk-9.4" CACHE PATH "VTK安装路径")
+endif()
 
-#find package itk
-set(ITK_DIR "H:/Tool/ITK-5.4.2/Debug/lib/cmake/itk-5.4")
+if(NOT DEFINED ITK_DIR)
+  set(ITK_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/ITK-5.4.2/Degug/lib/cmake/itk-5.4" CACHE PATH "ITK安装路径")
+endif()
+
+find_package(VTK 9.4 REQUIRED)
 find_package(ITK 5.4 REQUIRED)
 
 set(PROJECT_SOURCES
