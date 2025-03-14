@@ -160,9 +160,14 @@ void manageDicom::show3dImage(Input3dImageType::Pointer image)
 {  
     const vtkSmartPointer<vtkImageData> DICOM_IMAGE = itkToVtk(image);
     // 创建图像交互器并绑定到Qt窗口
-    vtkSmartPointer<vtkRenderWindowInteractor> iren = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-	iren->SetRenderWindow(ui->openGLWidget->renderWindow());
 
+    vtkSmartPointer<vtkRenderWindowInteractor> iren1 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+    vtkSmartPointer<vtkRenderWindowInteractor> iren2 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+    vtkSmartPointer<vtkRenderWindowInteractor> iren3 = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+
+	iren1->SetRenderWindow(ui->openGLWidget->renderWindow());
+    iren2->SetRenderWindow(ui->openGLWidget_2->renderWindow());
+    iren3->SetRenderWindow(ui->openGLWidget_3->renderWindow());
     
     // 创建图像查看器并绑定到Qt窗口
     vtkSmartPointer<vtkImageViewer2> viewer1 = vtkSmartPointer<vtkImageViewer2>::New();
@@ -199,12 +204,13 @@ void manageDicom::show3dImage(Input3dImageType::Pointer image)
     // 配置交互器样式（保持原有相机操作）
     vtkSmartPointer<vtkInteractorStyleTrackballCamera> style =
         vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
-    iren->SetInteractorStyle(style);
-
+    iren1->SetInteractorStyle(style);
+    iren2->SetInteractorStyle(style);
+    iren3->SetInteractorStyle(style);
     // 设置交互器（必须在创建控件前完成且必须在样式设置后调用）
-    viewer1->SetupInteractor(iren);
-    viewer2->SetupInteractor(iren);
-    viewer3->SetupInteractor(iren);
+    viewer1->SetupInteractor(iren1);
+    viewer2->SetupInteractor(iren2);
+    viewer3->SetupInteractor(iren3);
 
     // 创建滑动条控件
     vtkSmartPointer<vtkSliderRepresentation2D> sliderRep =
@@ -224,7 +230,7 @@ void manageDicom::show3dImage(Input3dImageType::Pointer image)
     // 创建滑动条控件
     vtkSmartPointer<vtkSliderWidget> sliderWidget =
         vtkSmartPointer<vtkSliderWidget>::New();
-    sliderWidget->SetInteractor(iren);
+    sliderWidget->SetInteractor(iren1);
     sliderWidget->SetRepresentation(sliderRep);
     sliderWidget->SetAnimationModeToAnimate();
     sliderWidget->EnabledOn();
@@ -243,7 +249,13 @@ void manageDicom::show3dImage(Input3dImageType::Pointer image)
     viewer2->Render();
     viewer3->Render();
 
-	iren->Initialize();
-    iren->Start(); 
+	iren1->Initialize();
+    iren1->Start(); 
+
+    iren2->Initialize();
+    iren2->Start();
+
+    iren3->Initialize();
+    iren2->Start();
 }
 
