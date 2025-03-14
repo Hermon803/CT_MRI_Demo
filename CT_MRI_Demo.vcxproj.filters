@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\manageDicom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\vtkreslicecursorcallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\manageDicom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\vtkreslicecursorcallback.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\include_Debug\ui_mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\include_Release\ui_mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\include_MinSizeRel\ui_mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\include_RelWithDebInfo\ui_mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CMakeFiles\e6e3c3a4875ad73833a49677f77b1f7e\autouic_(CONFIG).stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\mainwindow.ui" />
+    <None Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\autouic_Debug.stamp" />
+    <None Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\autouic_Release.stamp" />
+    <None Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\autouic_MinSizeRel.stamp" />
+    <None Include="H:\Code\CT_MRI_Demo\CT_MRI_Demo\CT_MRI_Demo_autogen\autouic_RelWithDebInfo.stamp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{25F44BC2-FFAA-3396-B5DE-DE53EF424823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{90135A5C-59B4-37C8-A940-F00B710C8660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C150D6B8-02A0-35B4-96D0-188C3DF83BB3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

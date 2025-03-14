@@ -1,0 +1,5 @@
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/CMakeFiles/CT_MRI_Demo.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/CMakeFiles/CT_MRI_Demo_qmlimportscan.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/CMakeFiles/INSTALL.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/CMakeFiles/ALL_BUILD.dir
+H:/Code/CT_MRI_Demo/CT_MRI_Demo/CMakeFiles/ZERO_CHECK.dir

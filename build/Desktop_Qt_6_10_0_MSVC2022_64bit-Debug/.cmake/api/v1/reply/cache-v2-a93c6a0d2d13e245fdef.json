@@ -1483,11 +1483,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "The directory containing a CMake configuration file for ITK."
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/Tool/ITK-5.4.2/Debug/lib"
+			"value" : "H:/Tool/ITK-5.4.2/Debug/lib/cmake/ITK-5.4"
 		},
 		{
 			"name" : "ITK_LIB",
@@ -7548,6 +7548,18 @@
 			],
 			"type" : "PATH",
 			"value" : "H:/Tool/Qt/6.10.0/msvc2022_64/lib/cmake/Qt6"
+		},
+		{
+			"name" : "VTK_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for VTK."
+				}
+			],
+			"type" : "PATH",
+			"value" : "H:/Tool/VTK-9.4.1/Debug/lib/cmake/vtk-9.4"
 		},
 		{
 			"name" : "VTK_MPI_NUMPROCS",

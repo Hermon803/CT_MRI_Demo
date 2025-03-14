@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-7b0e8f1cf1c17f23a987.json",
+					"jsonFile" : "directory-.-Debug-09a5931d54e02707ee77.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -46,7 +46,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CT_MRI_Demo::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CT_MRI_Demo-Debug-4bb1428a724e19830c16.json",
+					"jsonFile" : "target-CT_MRI_Demo-Debug-ccf78a215f749d32cdef.json",
 					"name" : "CT_MRI_Demo",
 					"projectIndex" : 0
 				},
@@ -67,7 +67,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CT_MRI_Demo_qmlimportscan::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CT_MRI_Demo_qmlimportscan-Debug-189bd98d822b90693619.json",
+					"jsonFile" : "target-CT_MRI_Demo_qmlimportscan-Debug-a939733aab9cd5971335.json",
 					"name" : "CT_MRI_Demo_qmlimportscan",
 					"projectIndex" : 0
 				}
